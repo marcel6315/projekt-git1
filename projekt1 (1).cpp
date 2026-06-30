@@ -16,4 +16,21 @@ int main() {
         cin >> wyjscie;
     } while(wyjscie != 0);
     return 0;
+
+    int silnia(int n)
+{
+    if (n < 0)
+    {
+        return -1;
+    }
+
+    int wynik = 1;
+
+    for (int i = 1; i <= n; i++)
+    {
+        wynik *= i;
+    }
+
+    return wynik;
+}
 }
