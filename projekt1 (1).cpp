@@ -20,6 +20,7 @@ bool czyPierwsza(int n)
 int main()
 {
     int a, b;
+
     cout << "Podaj dwie liczby calkowite: ";
     cin >> a >> b;
 
@@ -32,6 +33,7 @@ int main()
         cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
         cout << "1. Sprawdz czy liczba jest pierwsza" << endl;
         cout << "0. Wyjscie" << endl;
+        cout << "Wybor: ";
         cin >> wyjscie;
 
         switch (wyjscie)
@@ -39,13 +41,14 @@ int main()
         case 1:
         {
             int liczba;
+
             cout << "Podaj liczbe: ";
             cin >> liczba;
 
             if (czyPierwsza(liczba))
-                cout << "Liczba jest pierwsza." << endl;
+                cout << liczba << " jest liczba pierwsza." << endl;
             else
-                cout << "Liczba nie jest pierwsza." << endl;
+                cout << liczba << " nie jest liczba pierwsza." << endl;
 
             break;
         }
@@ -55,7 +58,7 @@ int main()
             break;
 
         default:
-            cout << "Niepoprawny wybor." << endl;
+            cout << "Niepoprawny wybor!" << endl;
         }
 
     } while (wyjscie != 0);
