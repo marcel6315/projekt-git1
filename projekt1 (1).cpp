@@ -2,17 +2,19 @@
 
 using namespace std;
 
-int silnia(int n)
+bool czyPierwsza(int n)
 {
-    if (n < 0)
-        return -1;
+    if (n < 2)
+        return false;
 
-    int wynik = 1;
+    for (int i = 2; i < n; i++)
+    {
+        if (n % i == 0)
+            return false;
+    }
 
-    for (int i = 1; i <= n; i++)
-        wynik *= i;
+    return true;
 
-    return wynik;
 }
 
 int main()
@@ -27,8 +29,10 @@ int main()
     do
     {
         cout << endl;
-        cout << "===== MENU =====" << endl;
-        cout << "1. Oblicz silnie" << endl;
+
+        cout << "MENU" << endl;
+        cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
+        cout << "1. Sprawdz czy liczba jest pierwsza" << endl;
         cout << "0. Wyjscie" << endl;
         cout << "Wybor: ";
         cin >> wyjscie;
@@ -42,12 +46,12 @@ int main()
             cout << "Podaj liczbe: ";
             cin >> liczba;
 
-            int wynik = silnia(liczba);
 
-            if (wynik == -1)
-                cout << "Silnia nie istnieje dla liczb ujemnych." << endl;
+            if (czyPierwsza(liczba))
+                cout << liczba << " jest liczba pierwsza." << endl;
             else
-                cout << "Silnia liczby " << liczba << " wynosi " << wynik << endl;
+                cout << liczba << " nie jest liczba pierwsza." << endl;
+
 
             break;
         }
@@ -57,7 +61,9 @@ int main()
             break;
 
         default:
-            cout << "Niepoprawny wybor." << endl;
+
+            cout << "Niepoprawny wybor!" << endl;
+
         }
 
     } while (wyjscie != 0);
